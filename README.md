@@ -6,7 +6,7 @@ Tool to watermark images for big ocean, big data project
 This app is a Java application. You'll need to have Java 8+ installed to use it. To run it and have it display help, use:
 
 ```bash
-java -jar bobd-watermark-0.1-all.jar --help
+java -jar bobd-watermark-0.1.0-all.jar --help
 ```
 
 ## Build

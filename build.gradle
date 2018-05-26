@@ -12,20 +12,35 @@ plugins {
 
     // Apply the application plugin to add support for building an application
     id 'application'
+
+    // Add scala support
+    id 'scala'
+
+    // For building a fat jar
+    id 'com.github.johnrengelman.shadow' version '2.0.4'
 }
 
-sourceCompatibility = 10
-targetCompatibility = 10
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
 
 // Define the main class for the application
-mainClassName = 'App'
+mainClassName = 'org.mbari.bobd.watermark.Main'
 
 dependencies {
     // This dependency is found on compile classpath of this component and consumers.
+    compile 'org.scala-lang:scala-library:2.12.6'
+    compile 'com.github.scopt:scopt_2.12:3.7.0'
+
     compile 'com.google.guava:guava:23.0'
+    compile 'org.apache.commons:commons-imaging:1.0-SNAPSHOT'
+    compile 'org.imgscalr:imgscalr-lib:4.2'
+    compile 'org.slf4j:slf4j-api:1.7.25'
+    runtime 'ch.qos.logback:logback-classic:1.2.3'
 
     // Use JUnit test framework
     testCompile 'junit:junit:4.12'
+
 }
 
 // In this section you declare where to find the dependencies of your project
@@ -33,4 +48,14 @@ repositories {
     // Use jcenter for resolving your dependencies.
     // You can declare any Maven/Ivy/file repository here.
     jcenter()
+    mavenCentral()
+    maven {
+        url "https://repository.apache.org/content/repositories/snapshots/"
+    }
+}
+
+jar {
+    manifest {
+        attributes "Main-Class": mainClassName
+    }
 }

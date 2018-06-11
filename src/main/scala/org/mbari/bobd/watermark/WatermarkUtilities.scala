@@ -74,8 +74,8 @@ object WatermarkUtilities {
     val g2 = image.getGraphics.asInstanceOf[Graphics2D]
     val v = image.getWidth * overlayPercentWidth / overlay.getWidth
     val so = scaleOverlay(v, overlay)
-    val x = round(image.getWidth * 0.05).toInt
-    val y = round(image.getHeight * 0.85 - so.getHeight).toInt
+    val x = round(image.getHeight * 0.05).toInt
+    val y = round(image.getHeight * 0.95 - so.getHeight).toInt
     g2.setComposite(alphaComposite)
     g2.drawImage(so, x, y, null)
     g2.dispose()

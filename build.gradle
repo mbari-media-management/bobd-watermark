@@ -10,14 +10,22 @@ plugins {
     // Apply the java plugin to add support for Java
     id 'java'
 
+
+    // Apply library plugin to bild as a library
+    id 'java-library'
+
     // Apply the application plugin to add support for building an application
     id 'application'
 
     // Add scala support
     id 'scala'
 
+    id 'maven-publish'
+
     // For building a fat jar
     id 'com.github.johnrengelman.shadow' version '2.0.4'
+
+    id "com.jfrog.bintray" version "1.8.4"
 }
 
 version = "0.1.0"
@@ -59,4 +67,30 @@ jar {
     manifest {
         attributes "Main-Class": mainClassName
     }
+}
+
+publishing {
+    publications {
+        BintrayPublication(MavenPublication) {
+            from components.java
+            groupId 'org.mbari.bobd'
+            artifactId project.name
+            version project.version
+        }
+    }
+}
+
+bintray {
+    user = System.getenv('BINTRAY_USER')
+    key = System.getenv('BINTRAY_KEY')
+    pkg {
+        repo = 'maven'
+        name = project.name
+        licenses = ['Apache-2.0']
+        vcsUrl = 'https://github.com/mbari-media-management/bobd-watermark'
+        version {
+            name = project.version
+        }
+    }
+    publications = ['BintrayPublication'] 
 }

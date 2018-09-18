@@ -53,5 +53,5 @@ It can also be built and deployed as a maven library. To do so you will need to 
 gradle bintrayUpload
 ```
 
-This library is current available at <https://dl.bintray.com/hohonuuli/maven>. The maven coordinates are `org.mbari.bobd:bobd-waterwark:<version>`
+This library is current available at <https://dl.bintray.com/hohonuuli/maven>. The maven coordinates are `org.mbari.bobd:bobd-waterwark:0.1.0`
 

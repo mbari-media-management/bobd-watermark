@@ -36,9 +36,22 @@ java -jar bobd-watermark-0.1.0-all.jar \
 
 ## Build
 
-This app is built with [Gradle](https://gradle.org/). Build it with:
+### Build as Java App
+This app is built with [Gradle](https://gradle.org/). Build a standalone java application (jar) with:
 
 ```bash
 gradle shadowJar
 ```
+
+### Build/Deploy as Maven library
+It can also be built and deployed as a maven library. To do so you will need to do the following:
+
+1. Set a `BINTRAY_USER` enviromnment variable to your user name.
+2. Set a `BINTRAY_KEY` environment that contains your Bintray API key
+3. Deploy it with:
+```bash
+gradle bintrayUpload
+```
+
+This library is current available at <https://dl.bintray.com/hohonuuli/maven>. The maven coordinates are `org.mbari.bobd:bobd-waterwark:<version>`
 

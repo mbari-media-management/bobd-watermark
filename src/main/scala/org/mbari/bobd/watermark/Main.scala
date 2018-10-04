@@ -75,7 +75,7 @@ object Main {
             .text("If this flag is present, overwrite any existing images")
 
     opt[Boolean]('m', name = "metadata")
-            .action((_, c) = c.copy(metadata = false))
+            .action((_, c) => c.copy(metadata = false))
             .text("if this flag is present, do not modify EXIF or PNG metadata")
 
     help("help").text("Add a watermark to every jpg and png image in a directory")

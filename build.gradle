@@ -38,7 +38,7 @@ mainClassName = 'org.mbari.bobd.watermark.Main'
 
 dependencies {
     // This dependency is found on compile classpath of this component and consumers.
-    compile 'org.scala-lang:scala-library:2.12.6'
+    compile 'org.scala-lang:scala-library:2.12.7'
     compile 'com.github.scopt:scopt_2.12:3.7.0'
 
     compile 'com.google.guava:guava:23.0'

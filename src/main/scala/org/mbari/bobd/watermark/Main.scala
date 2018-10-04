@@ -32,7 +32,8 @@ object Main {
                     overlayPercentWidth: Double = 0.4,
                     copyright: Option[String] = None,
                     credits: Option[String] = None,
-                    overwrite: Boolean = false)
+                    overwrite: Boolean = false,
+                    metadata: Boolean = true)
 
   implicit val pathRead: Read[Path] = new Read[Path] {
     override def arity: Int = 1
@@ -72,6 +73,10 @@ object Main {
     opt[Unit]('o', name = "overwrite")
             .action((_, c) => c.copy(overwrite = true))
             .text("If this flag is present, overwrite any existing images")
+
+    opt[Boolean]('m', name = "metadata")
+            .action((_, c) = c.copy(metadata = false))
+            .text("if this flag is present, do not modify EXIF or PNG metadata")
 
     help("help").text("Add a watermark to every jpg and png image in a directory")
   }
